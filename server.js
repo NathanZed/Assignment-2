@@ -3,11 +3,12 @@ const BodyParser = require('body-parser');
 const Mongoose = require('mongoose');
 
 const Product = require('./models/product');
+// const User = require('./models/user');
 
 const app = Express();
 
 app.use(BodyParser.json());
-
+// takes an http request and does the action in a try catch handling what the http code is
 const doActionThatMightFailValidation = async (request, response, action) => {
   try {
     await action();
@@ -20,7 +21,7 @@ const doActionThatMightFailValidation = async (request, response, action) => {
     );
   }
 };
-
+// different service
 app.get('/products', async (request, response) => {
   await doActionThatMightFailValidation(request, response, async () => {
     response.json(await Product.find(request.query).select('-_id -__v'));
