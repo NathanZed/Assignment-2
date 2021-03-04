@@ -2,21 +2,21 @@ const Express = require('express');
 const BodyParser = require('body-parser');
 const Mongoose = require('mongoose');
 
-const Product = require('./models/product');
+// const Product = require('./models/product');
 // const User = require('./models/user');
 
 const app = Express();
 
 app.use(BodyParser.json());
-// takes an http request and does the action in a try catch handling what the http code is
+/* // helper function
 const doActionThatMightFailValidation = async (request, response, action) => {
   try {
     await action();
   } catch (e) {
-    response.sendStatus(
+    response.sendStatus( // Controller?
       e.code === 11000
-      || e.stack.includes('ValidationError')
-      || (e.reason !== undefined && e.reason.code === 'ERR_ASSERTION')
+        || e.stack.includes('ValidationError')
+        || (e.reason !== undefined && e.reason.code === 'ERR_ASSERTION')
         ? 400 : 500,
     );
   }
@@ -89,9 +89,9 @@ app.patch('/products/:sku', async (request, response) => {
     }
   });
 });
-
+*/
 (async () => {
-  await Mongoose.connect('mongodb+srv://admin:admin@cluster0-cde82.mongodb.net/mongodb?retryWrites=true&w=majority', {
+  await Mongoose.connect('mongodb+srv://Admin:<password>@user.n8bk7.mongodb.net/User?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
