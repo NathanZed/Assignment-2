@@ -8,6 +8,18 @@ const Mongoose = require('mongoose');
 const app = Express();
 
 app.use(BodyParser.json());
+
+// const PORT = process.env.PORT || 8080;
+
+// This section is custom error messages to test if things are working
+/*
+app.get('/', (req, res) => {
+  res.json({ message: 'Application is working.' });
+});
+/*
+app.listen(PORT, () => {
+  // console.log(`Server is running on port ${PORT}.`);
+});
 /* // helper function
 const doActionThatMightFailValidation = async (request, response, action) => {
   try {
@@ -90,12 +102,19 @@ app.patch('/products/:sku', async (request, response) => {
   });
 });
 */
+
 (async () => {
-  await Mongoose.connect('mongodb+srv://Admin:<password>@user.n8bk7.mongodb.net/User?retryWrites=true&w=majority', {
+  await Mongoose.connect('mongodb+srv://Admin:Admin@databasecluster.n8bk7.mongodb.net/DatabaseCluster?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
     useCreateIndex: true,
   });
-  app.listen(8000);
+  // app.listen(8080);
+/*
+  const db = Mongoose.connection;
+  db.on('error', console.error.bind(console, 'connection error:'));
+  db.once('open', () => {
+    console.log('Database Connected');
+  }); */
 })();

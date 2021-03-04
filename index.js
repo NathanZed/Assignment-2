@@ -2,8 +2,6 @@ const Mongoose = require('mongoose');
 const Express = require('express');
 const BodyParser = require('body-parser');
 
-
-
 const app = Express();
 
 app.use(BodyParser.json());
