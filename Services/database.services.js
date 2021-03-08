@@ -70,7 +70,7 @@ app.updateOneUser = async (request, response) => {
 };
 
 (async () => {
-  await Mongoose.connect('mongodb+srv://admin:U7CWgya36gFJg57@cluster0.vnnkb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+  await Mongoose.connect('mongodb+srv://ComAd:Admin@database.n8bk7.mongodb.net/Database?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
